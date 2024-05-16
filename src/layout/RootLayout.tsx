@@ -1,29 +1,35 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
+import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import { COLORS } from "../utils/constant/color";
 
 const RootLayout = () => {
     return (
-        <Box
-            sx={{
-                display: "flex",
-                height: "100vh",
-                width: "100%",
-                bgcolor: COLORS.BG_COLOR,
-                color: "#fff",
-            }}
-        >
-            <Box flex={1} sx={{}}>
-                <Sidebar />
-            </Box>
-            <Box
-                flex={2.5}
+        <Box className="container">
+            <Container
+                className="container"
                 sx={{
-                    borderLeft: "3px solid #3f3f3f",
-                    borderRight: "3px solid #3f3f3f",
+                    display: "flex",
+                    height: "100vh",
+                    width: "100%",
+                    color: "#fff",
                 }}
-            ></Box>
-            <Box flex={1.5} sx={{}}></Box>
+            >
+                <Box flex={1} sx={{}}>
+                    <Sidebar />
+                </Box>
+                <Box
+                    flex={2.5}
+                    className="thread-container"
+                    sx={{
+                        borderLeft: "3px solid #3f3f3f",
+                        borderRight: "3px solid #3f3f3f",
+                        overflowY: "auto",
+                    }}
+                >
+                    <Outlet />
+                </Box>
+                <Box flex={1.5} sx={{}}></Box>
+            </Container>
         </Box>
     );
 };
