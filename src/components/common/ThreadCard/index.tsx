@@ -20,7 +20,7 @@ const ThreadCard: FC<IProps> = ({ thread }) => {
                 py: 1,
             }}
         >
-            <Avatar alt="ava" src={thread.author.profile?.avatar ?? DEFAULT_AVA} />
+            <Avatar sx={{ width: 30, height: 30 }} alt="ava" src={thread.author.profile?.avatar ?? DEFAULT_AVA} />
             <Box
                 sx={{
                     width: "100%",

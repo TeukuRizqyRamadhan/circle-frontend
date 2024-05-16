@@ -1,5 +1,6 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import MenuItem from "./MenuItem";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Sidebar = () => {
     return (
@@ -16,8 +17,10 @@ const Sidebar = () => {
             <Box>
                 <MenuItem />
             </Box>
-            <Box>Button Create</Box>
-            <Box sx={{ marginTop: "auto" }}>Logout</Box>
+            <Box>      <Button variant="contained" color="success" sx={{ width: "200px", color: 'white', borderRadius: '20px' }}>
+                Create Post
+            </Button></Box>
+            <Box sx={{ marginTop: "auto", display: "flex", alignItems: "center", gap: 1 }}><LogoutIcon sx={{ transform: "rotate(180deg)" }} />Logout</Box>
         </Box>
     );
 };
