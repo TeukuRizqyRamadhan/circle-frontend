@@ -1,7 +1,6 @@
 import { AxiosResponse } from "axios";
 import { API } from "..";
 import { IThread } from "../../../types/app";
-import { ISuccessResponse } from "../../../types/response";
 
 type TThreadsResponse = AxiosResponse<IThread[]>;
 

@@ -49,7 +49,7 @@ const MENU = [
 
 const MenuItem = () => {
     return (
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {MENU.map((item) => (
                 <NavLink to={item.path} style={{ textDecoration: "none" }}>
                     {({ isActive }) => (
