@@ -2,6 +2,8 @@ import { RouteObject } from "react-router-dom";
 import Home from "../pages/Home";
 import RootLayout from "../layout/RootLayout";
 import Profile from "../pages/Profile";
+import Search from "../pages/Search";
+import Followings from "../pages/Followings";
 
 const router: RouteObject[] = [
     {
@@ -18,11 +20,11 @@ const router: RouteObject[] = [
             },
             {
                 path: "search",
-                element: <Home />,
+                element: <Search />,
             },
             {
                 path: "follows",
-                element: <Home />,
+                element: <Followings />,
             },
         ],
     },
