@@ -9,18 +9,6 @@ interface IProps {
 const ImageComponent: React.FC<IProps> = ({ image }) => {
 
     return (
-        //   <Grid container sx={{ padding: 2 }}>
-        //      {image?.map((item) => (
-        //         <Grid item xs={6}>
-        //            <img
-        //               src={"http://localhost:5001/uploads/" + item.image}
-        //               alt="image"
-        //               style={{ width: "100%", height: "10rem", objectFit: "cover" }}
-        //               key={item.id}
-        //            />
-        //         </Grid>
-        //      ))}
-        //   </Grid>
         <Box
             sx={{
                 display: "flex",

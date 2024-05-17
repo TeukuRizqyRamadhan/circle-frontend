@@ -4,8 +4,6 @@ import { Avatar, Box, Typography } from "@mui/material";
 import AuthorComponent from "./AuthorComponent";
 import ImageComponent from "./ImageComponent";
 import { DEFAULT_AVA } from "../../../utils/constant/defaultAva";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import LikeButton from "../LikeButton";
 
