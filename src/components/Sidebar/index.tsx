@@ -1,9 +1,8 @@
-import { Box, Button, Modal, Avatar, Divider } from "@mui/material";
+import { Box, Button, Modal, Avatar, Divider, TextField } from "@mui/material";
 import MenuItem from "./MenuItem";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useState } from "react";
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
-import Textarea from "@mui/joy/Textarea";
 import { DEFAULT_AVA } from "../../utils/constant/defaultAva";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
@@ -73,15 +72,33 @@ const Sidebar = () => {
                     <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                         <Avatar sx={{ width: 30, height: 30 }} alt="ava" src={DEFAULT_AVA} />
                         <Box sx={{ flexGrow: 1 }}>
-                            <Textarea
+                            <TextField
+                                placeholder="What is happening?!"
+                                multiline
+                                rows={2}
+                                variant="outlined" // Anda bisa menggunakan 'filled' atau 'standard' sesuai kebutuhan
                                 sx={{
                                     width: "100%",
                                     color: "white",
-                                    backgroundColor: "transparent"
+                                    backgroundColor: "#3F3F3F",
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': {
+                                            borderColor: '#3F3F3F', // Border warna latar belakang
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: 'white', // Border warna saat hover
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#3F3F3F', // Border warna saat fokus (sama dengan background untuk menghilangkan outline)
+                                        },
+                                    },
+                                    '& .MuiInputBase-input': {
+                                        color: 'white', // Warna teks
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: 'white', // Warna placeholder
+                                    },
                                 }}
-                                name="Solid"
-                                placeholder="What is happening?!"
-                                variant="solid"
                             />
                         </Box>
                     </Box>

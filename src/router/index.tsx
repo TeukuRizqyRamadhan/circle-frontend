@@ -4,6 +4,9 @@ import RootLayout from "../layout/RootLayout";
 import Profile from "../pages/Profile";
 import Search from "../pages/Search";
 import Followings from "../pages/Followings";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import AuthLayout from "../layout/AuthLayout";
 
 const router: RouteObject[] = [
     {
@@ -27,6 +30,20 @@ const router: RouteObject[] = [
                 element: <Followings />,
             },
         ],
+    },
+    {
+        path: "/auth",
+        element: <AuthLayout />,
+        children: [
+            {
+                path: "login",
+                element: <Login />,
+            },
+            {
+                path: "register",
+                element: <Register />,
+            },
+        ]
     },
 ];
 

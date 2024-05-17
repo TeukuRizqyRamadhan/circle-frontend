@@ -7,7 +7,6 @@ interface IProps {
 }
 
 const ImageComponent: React.FC<IProps> = ({ image }) => {
-    console.log(image);
 
     return (
         //   <Grid container sx={{ padding: 2 }}>
