@@ -1,29 +1,22 @@
-import { Box, Typography, Avatar, Button } from "@mui/material";
+import { Box, Typography, Avatar, Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import ThreadCard from "../../components/common/ThreadCard";
 import { getThreads } from "../../lib/api/call/thread";
 import { IThread } from "../../types/app";
-import Textarea from '@mui/joy/Textarea';
 import { DEFAULT_AVA } from "../../utils/constant/defaultAva";
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
+import { useAppDispatch, useAppSelector } from "../../store";
+import { getThreadsAsync } from "../../store/async/threadAsync";
 
 const Home = () => {
-    const [thread, setThread] = useState<IThread[]>([]);
 
-    const fetchThread = async () => {
-        try {
-            const { data } = await getThreads();
-            data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-            console.log(data);
-            setThread(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const thread = useAppSelector((state) => state.thread.thread);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        fetchThread();
+        dispatch(getThreadsAsync());
     }, []);
+
 
     const handleAddFileClick = () => {
         // Pemicu klik pada elemen input file yang tersembunyi
@@ -45,7 +38,36 @@ const Home = () => {
         <Box sx={{ display: "flex", flexwrap: "wrap", gap: 1, alignItems: "center", paddingX: 2, marginBottom: 1.5 }}>
             <Avatar sx={{ width: 30, height: 30 }} alt="ava" src={DEFAULT_AVA} />
             <Box sx={{ width: "100%" }}>
-                <Textarea sx={{ color: "white", backgroundColor: "#1D1D1D" }} name="Solid" placeholder="What is happening?!" variant="solid" />
+                <TextField
+                    placeholder="What is happening?!"
+                    multiline
+                    rows={2}
+                    // maxRows={4}
+                    variant="outlined" // Anda bisa menggunakan 'filled' atau 'standard' sesuai kebutuhan
+                    sx={{
+                        width: "100%",
+                        color: "white",
+                        backgroundColor: "#1D1D1D",
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: '#1D1D1D', // Border warna latar belakang
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'white', // Border warna saat hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#1D1D1D', // Border warna saat fokus (sama dengan background untuk menghilangkan outline)
+                            },
+                        },
+                        '& .MuiInputBase-input': {
+                            color: 'white', // Warna teks
+                        },
+                        '& .MuiInputLabel-root': {
+                            color: 'white', // Warna placeholder
+                        },
+                    }}
+                />
+                {/* <Textarea sx={{ color: "white", backgroundColor: "#1D1D1D" }}  placeholder="What is happening?!" variant="solid" /> */}
             </Box>
             <AddPhotoAlternateOutlinedIcon
                 sx={{ color: "#04A51E", cursor: "pointer" }}

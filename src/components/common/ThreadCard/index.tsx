@@ -7,6 +7,7 @@ import { DEFAULT_AVA } from "../../../utils/constant/defaultAva";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+import LikeButton from "../LikeButton";
 
 
 interface IProps {
@@ -14,7 +15,6 @@ interface IProps {
 }
 
 const ThreadCard: FC<IProps> = ({ thread }) => {
-    console.log(thread.author.profile?.avatar);
 
     return (
         <Box
@@ -39,7 +39,7 @@ const ThreadCard: FC<IProps> = ({ thread }) => {
                     <ImageComponent image={thread.image} />
                 )}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <FavoriteIcon sx={{ color: 'red' }} /> {thread.like?.length}
+                    <LikeButton threadId={thread.id} />
                     <SmsOutlinedIcon sx={{ color: 'gray' }} />{thread.replies?.length} Replies
                 </Box>
             </Box>

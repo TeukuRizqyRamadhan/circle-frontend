@@ -1,5 +1,5 @@
 export interface IThread {
-    id?: number;
+    id?: string;
     content?: string;
     image?: IThreadImage[];
     like?: ILike[];
