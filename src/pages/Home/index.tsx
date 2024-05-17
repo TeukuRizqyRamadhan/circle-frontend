@@ -1,8 +1,6 @@
 import { Box, Typography, Avatar, Button, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ThreadCard from "../../components/common/ThreadCard";
-import { getThreads } from "../../lib/api/call/thread";
-import { IThread } from "../../types/app";
 import { DEFAULT_AVA } from "../../utils/constant/defaultAva";
 import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import { useAppDispatch, useAppSelector } from "../../store";
