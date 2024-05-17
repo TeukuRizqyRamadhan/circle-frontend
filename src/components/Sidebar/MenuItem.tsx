@@ -51,7 +51,7 @@ const MenuItem = () => {
     return (
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {MENU.map((item) => (
-                <NavLink to={item.path} style={{ textDecoration: "none" }}>
+                <NavLink to={item.path} key={item.name} style={{ textDecoration: "none" }}>
                     {({ isActive }) => (
                         <Box
                             color={isActive ? "#fff" : "rgba(255, 255, 255, 0.6)"}

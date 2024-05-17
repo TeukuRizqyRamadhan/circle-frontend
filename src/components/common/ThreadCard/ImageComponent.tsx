@@ -26,22 +26,20 @@ const ImageComponent: React.FC<IProps> = ({ image }) => {
             sx={{
                 display: "flex",
                 flexWrap: "wrap",
-                border: "1px solid rgba(255, 255, 255, 0.6)",
                 borderRadius: "10px",
             }}
         >
+
             {image?.map((item) => (
-                <Box flex="1 1" minWidth={"50%"}>
+                <Box flex="1 1" minWidth={"50%"} key={item.url}>
                     <img
                         src={"http://localhost:5000/uploads/" + item.url}
                         alt="image"
                         style={{
                             width: "100%",
-                            height: "20rem",
                             objectFit: "cover",
                             borderRadius: "10px",
                         }}
-                        key={item.id}
                     />
                 </Box>
             ))}

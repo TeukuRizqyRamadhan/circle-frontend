@@ -4,33 +4,44 @@ import { Avatar, Box, Typography } from "@mui/material";
 import AuthorComponent from "./AuthorComponent";
 import ImageComponent from "./ImageComponent";
 import { DEFAULT_AVA } from "../../../utils/constant/defaultAva";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+
 
 interface IProps {
     thread: IThread;
 }
 
 const ThreadCard: FC<IProps> = ({ thread }) => {
+    console.log(thread.author.profile?.avatar);
+
     return (
         <Box
             sx={{
                 display: "flex",
                 gap: 1,
                 paddingX: 2,
-                borderBottom: "1px solid rgba(255, 255, 255, 0.6)",
+                borderTop: "1px solid rgba(63, 63, 63, 1)",
+                borderBottom: "1px solid rgba(63, 63, 63, 1)",
                 py: 1,
             }}
         >
-            <Avatar sx={{ width: 30, height: 30 }} alt="ava" src={thread.author.profile?.avatar ?? DEFAULT_AVA} />
+            <Avatar sx={{ width: 30, height: 30 }} alt="ava" src={thread.author.profile?.avatar ? "http://localhost:5000/uploads/" + thread.author.profile?.avatar : DEFAULT_AVA} />
             <Box
                 sx={{
                     width: "100%",
                 }}
             >
                 <AuthorComponent author={thread.author} />
-                <Typography>{thread.content}</Typography>
+                <Typography sx={{ marginBottom: 1 }}>{thread.content}</Typography>
                 {thread.image && thread.image.length > 0 && (
                     <ImageComponent image={thread.image} />
                 )}
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <FavoriteIcon sx={{ color: 'red' }} /> {thread.like?.length}
+                    <SmsOutlinedIcon sx={{ color: 'gray' }} />{thread.replies?.length} Replies
+                </Box>
             </Box>
         </Box>
     );
