@@ -2,7 +2,11 @@ export interface IThread {
     id?: number;
     content?: string;
     image?: IThreadImage[];
+    like?: ILike[];
+    replies: IReplies[];
     author: IAuthor;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface IThreadImage {
@@ -21,4 +25,9 @@ interface IProfile {
     bio?: string;
     avatar?: string;
     cover?: string;
+}
+
+interface ILike {
+    threadId?: number;
+    userId?: number;
 }
