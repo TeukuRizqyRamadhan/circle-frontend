@@ -64,7 +64,7 @@ const Sidebar = () => {
             <Box>
                 <MenuItem />
             </Box>
-            <Button onClick={handleOpen} variant="contained" color="success" sx={{ width: "200px", color: 'white', borderRadius: '20px' }}>
+            <Button onClick={handleOpen} sx={{ width: "200px", color: 'white', borderRadius: '20px', bgcolor: "#04A51E" }}>
                 Create Post
             </Button>
             <Modal

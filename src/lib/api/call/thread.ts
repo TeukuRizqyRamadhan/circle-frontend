@@ -9,5 +9,10 @@ export const getThread = async (id: string) => {
 };
 
 export const getThreads = async (): Promise<TThreadsResponse> => {
-    return await API.get(`/threads`);
+    const response = await API.get<IThread[]>(`/threads`);
+    const sortedThreads = response.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    return {
+        ...response,
+        data: sortedThreads
+    };
 };
