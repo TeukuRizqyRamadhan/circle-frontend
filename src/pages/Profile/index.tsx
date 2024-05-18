@@ -7,21 +7,27 @@ import { FC } from "react";
 import { DEFAULT_AVA } from "../../utils/constant/defaultAva";
 import { DEFAULT_COVER } from "../../utils/constant/defaultCover";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { useNavigate } from "react-router-dom";
 
 
 const Profile: FC<IProfile> = () => {
     const profile = useAppSelector((state) => state.profile.profile);
     const dispatch = useAppDispatch();
+    const Navigate = useNavigate();
 
     useEffect(() => {
         dispatch(getProfileAsync());
     }, []);
+
+    const handleBackClick = () => {
+        Navigate(-1); // Navigate to the previous page
+    };
     console.log(profile);
     return (
         <>
             <Box sx={{ position: "relative", display: "flex", flexDirection: "column", m: 2 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1, }}>
-                    <KeyboardBackspaceIcon /> <Typography fontSize={20} fontWeight={"semibold"} sx={{ color: "white" }}>{profile.user?.fullname}</Typography>
+                    <KeyboardBackspaceIcon onClick={handleBackClick} sx={{ cursor: "pointer" }} /> <Typography fontSize={20} fontWeight={"semibold"} sx={{ color: "white" }}>{profile.user?.fullname}</Typography>
                 </Box>
                 <Box sx={{ position: "relative", width: "100%", height: 200, borderRadius: "10px", gap: 2 }}>
                     <img
@@ -38,7 +44,7 @@ const Profile: FC<IProfile> = () => {
                             transform: "translateX(-50%)",
                             width: 100,
                             height: 100,
-                            border: "2px solid white",
+                            border: "5px solid black",
                             gap: 2
                         }}
                         alt="ava"

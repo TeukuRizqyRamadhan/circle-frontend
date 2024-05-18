@@ -26,6 +26,10 @@ export const authSlice = createSlice({
             state.profile = {};
             state.token = "";
         },
+        REGISTER: (state, action) => {
+            console.log("FROM REGISTER ACTION", action.payload);
+            state.isLogin = false;
+        }
     },
     extraReducers(builder) {
         builder

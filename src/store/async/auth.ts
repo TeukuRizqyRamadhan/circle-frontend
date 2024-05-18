@@ -6,6 +6,12 @@ interface ILoginForm {
     password: string;
 }
 
+interface IRegisterForm {
+    fullname: string;
+    email: string;
+    password: string;
+}
+
 export const loginAsync = createAsyncThunk<
     string,
     ILoginForm,
@@ -21,6 +27,27 @@ export const loginAsync = createAsyncThunk<
         setAuthToken(token);
         localStorage.setItem("token", token);
         return token;
+    } catch (error) {
+        return rejectWithValue("error");
+    }
+});
+
+export const RegisterAsync = createAsyncThunk<
+    string,
+    IRegisterForm,
+    { rejectValue: string }
+>("auth/register", async (props, { rejectWithValue }) => {
+    try {
+        console.log("props", props);
+        const { data } = await API.post("/register", props);
+
+        console.log("data", data);
+
+        // const token = data.token;
+        // setAuthToken(token);
+        // localStorage.setItem("token", token);
+        // return token;
+        return data;
     } catch (error) {
         return rejectWithValue("error");
     }
