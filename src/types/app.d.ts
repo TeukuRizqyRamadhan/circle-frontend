@@ -17,14 +17,19 @@ export interface IThreadImage {
 export interface IAuthor {
     id?: number;
     fullname?: string;
+    email?: string;
     profile?: IProfile;
+    followedBy: string
+    following: string
 }
 
 interface IProfile {
+    [x: string]: IProfile | RejectWithValue<string, unknown> | PromiseLike<IProfile | RejectWithValue<string, unknown>>;
     username?: string;
     bio?: string;
     avatar?: string;
     cover?: string;
+    user?: IAuthor;
 }
 
 interface ILike {
