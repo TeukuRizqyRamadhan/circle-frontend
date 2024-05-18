@@ -13,10 +13,9 @@ export const useLoginFunction = ({ reset }: IProps) => {
 
     const onSubmit = async (data: ILoginForm) => {
         try {
-            const result = await dispatch(loginAsync(data)).unwrap();
+            await dispatch(loginAsync(data)).unwrap();
             reset();
             // Reset error if login is successful
-            return result;
             setError('');
         } catch (err) {
             // Set error message if login fails

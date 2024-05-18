@@ -120,6 +120,7 @@ const Login = () => {
                         >
                             LOGIN
                         </Button>
+                        <Link to={"/auth/register"} style={{ textDecoration: "none" }}><Typography sx={{ color: "white" }}>Don't have an account? Register</Typography></Link>
                     </Box>
                 </form>
             </Box>
