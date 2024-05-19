@@ -24,7 +24,8 @@ const ImageComponent: React.FC<IProps> = ({ image }) => {
                         alt="image"
                         style={{
                             width: "100%",
-                            objectFit: "cover",
+                            height: "100%",
+                            backgroundSize: "contain",
                             borderRadius: "10px",
                         }}
                     />

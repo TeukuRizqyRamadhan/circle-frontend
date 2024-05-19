@@ -29,6 +29,7 @@ interface IProfile {
     bio?: string;
     avatar?: string;
     cover?: string;
+    fullname?: string;
     user?: IAuthor;
 }
 

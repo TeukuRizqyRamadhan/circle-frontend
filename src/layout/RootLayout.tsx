@@ -2,6 +2,7 @@ import { Box, Container } from "@mui/material";
 import { Outlet, Navigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { useAppSelector } from "../store";
+import Profile from "../components/Profile";
 
 const RootLayout = () => {
     const isLogin = useAppSelector((state) => state.auth.isLogin);
@@ -34,7 +35,9 @@ const RootLayout = () => {
                 >
                     <Outlet />
                 </Box>
-                <Box flex={1.5} sx={{}}></Box>
+                <Box flex={1.5} sx={{}}>
+                    <Profile />
+                </Box>
             </Container>
         </Box>
     );
