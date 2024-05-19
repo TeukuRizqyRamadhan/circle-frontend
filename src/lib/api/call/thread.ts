@@ -16,3 +16,7 @@ export const getThreads = async (): Promise<TThreadsResponse> => {
         data: sortedThreads
     };
 };
+
+export const createThread = async (data: any) => {
+    return await API.post(`/threads`, data);
+}

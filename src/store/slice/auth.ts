@@ -23,7 +23,6 @@ export const authSlice = createSlice({
         SET_LOGOUT: (state) => {
             localStorage.removeItem("token");
             state.isLogin = false;
-            state.profile = {};
             state.token = "";
         },
         REGISTER: (state, action) => {

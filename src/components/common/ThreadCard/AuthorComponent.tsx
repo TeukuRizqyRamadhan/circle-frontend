@@ -16,7 +16,7 @@ const AuthorComponent: React.FC<IProps> = ({ author }) => {
                 alignItems: "center",
             }}
         >
-            <Typography fontWeight={700}>{author?.fullname} </Typography>
+            <Typography fontWeight={700}>{author?.profile?.fullname} </Typography>
             <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.6)" }}>
                 @{author?.profile?.username}
             </Typography>
